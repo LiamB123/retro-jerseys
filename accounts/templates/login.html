@@ -6,9 +6,14 @@
 <form method="POST">
         {% csrf_token %}
         {{ login_form | as_bootstrap}}
-        <button type="submit" class="btn btn-default">
+        <button type="submit" class="btn btn-default" class>
             Login
         </button>
 </form>
 <p><a href="{% url 'password_reset' %}">Reset Password </a> </p>
+
+<p>Dont have an account with us? 
+<hr>
+<a href="{% url 'registration' %}">
+Sign Up!</a></p>
 {% endblock %}  

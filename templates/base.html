@@ -35,14 +35,24 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1"> 
+           {% if user.is_authenticated %}
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="">Cart</a>
+          </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="(url_for)">Store</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'logout' %}">Logout</a>
+          </li>
+          
+          {% else %}
+           <li class="nav-item mx-0 mx-lg-1"> 
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'registration' %}">Register</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'login' %}">Login</a>
           </li>
+          {% endif %}
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Store</a>
           </li>
         </ul>
       </div>
@@ -81,7 +91,7 @@
   
   
   <!-- Bootstrap core JavaScript -->
-  % static 'vendor/fontawesome-free/css/all.css' %}
+
   <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 

@@ -1,3 +1,30 @@
 .bg-primary {
   background-color: #0a0a0a !important;
 }
+
+.bg-secondary{
+    background-color: #f8f9fa !important;
+}
+
+
+#mainNav .navbar-brand {
+    color: #040000;
+}
+
+#mainNav .navbar-nav li.nav-item a.nav-link {
+    color: #040000;
+}
+
+.footer{
+    background-color: #0a0a0a !important;
+}
+
+.hover {
+    invert:1;
+}
+
+.form-width{
+    width:80%;
+    text-align: center;
+    padding-left: 20%;
+}
