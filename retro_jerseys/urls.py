@@ -16,12 +16,14 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from accounts import urls as urls_accounts
+from product import urls as urls_product
 from home.views import index
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name="index"),
-    url(r'^accounts/', include(urls_accounts))
+    url(r'^accounts/', include(urls_accounts)),
+    url(r'^product/', include(urls_product)),
    
 ]

@@ -3,10 +3,10 @@
 
 
 {% block content %}
-<form method="POST">
+<div class="form-width" ><form method="POST" >
         {% csrf_token %}
         {{ login_form | as_bootstrap}}
-        <button type="submit" class="btn btn-default" class>
+        <button type="submit" class="btn btn-dark" class>
             Login
         </button>
 </form>
@@ -16,4 +16,5 @@
 <hr>
 <a href="{% url 'registration' %}">
 Sign Up!</a></p>
+</div>
 {% endblock %}  
