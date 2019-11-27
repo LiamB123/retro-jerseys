@@ -1,18 +1,17 @@
 from django import forms
-from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
-from django.core.exceptions import ValidationError
+from .models import contact,sales_form
 
-class UserContactForm(forms.Form):
+class UserContactForm(forms.ModelForm):
     """ Form allowing users to contact site owner with issues/queries"""
+    class Meta:
+        model=contact
+        fields=('name','subject','message','contact')
+        
+   
     
-    name=forms.CharField()
-    subject = forms.CharField()
-    contact=forms.CharField()
     
-    
-class UserSalesForm(forms.Form):
+class SalesForm(forms.Form):
     """ Form for users to submit there jersey for resale """
-    
-    name=forms.CharField()
-    jersey = img
+    class Meta:
+        model=sales_form
+        fields=('name','subject', 'message', 'contact','image')
