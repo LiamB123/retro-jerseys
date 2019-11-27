@@ -3,9 +3,9 @@
     <div class="row row-flex">
         {% for item in cart_items %}
 
-        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-1 col-sm-10 col-md-10 col-lg-10 card">
+        <div class="col-xs-6 col-xs-offset-1 col-sm-offset-1 col-sm-6 col-md-6 col-lg-6">
 
-            <div class="card-body text">
+            <div class="card">
                 <h3>{{ item.product.name }}</h3>
                 <p class="card-description">{{ item.product.description }}</p>
                 <p>€{{ item.product.price }}</p>
@@ -27,14 +27,24 @@
                 </p>
             </div>
         </div>
+
+        <div class="col-xs-4 col-xs-offset-1 col-sm-offset-1 col-sm-4 col-md-4 col-lg-4">
+            <div class="panel" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')">
+
+            </div>
+        </div>
+
         {% endfor %}
+
+    </div> 
+    <div class="row row-flex">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-1 col-sm-10 col-md-10 col-lg-10 text-align-cent  jumbotron">
+            <p>Total</p>
+            <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
+            <a href="{% url 'checkout' %}" class="btn btn-outline-dark" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
+        </div>
     </div>
-    <div class="row ">
-        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-1 col-sm-10 col-md-10 col-lg-10  jumbotron jumbotron-fluid ">
-        <p>Total</p>
-        <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
-        <a href="{% url 'checkout' %}" class="btn btn-outline-dark" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
-    </div>
+</div>
 </div>
 {% endblock %}
  

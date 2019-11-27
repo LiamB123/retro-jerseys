@@ -1,0 +1,6 @@
+*.sqlite3
+__pycache__
+.~c9*
+env.py
+*.png
+media

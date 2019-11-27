@@ -37,22 +37,22 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-0 mx-lg-1"> 
            {% if user.is_authenticated %}
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="">Cart</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'view_cart' %}"><i class="fas fa-shopping-cart"></i> Cart</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'logout' %}">Logout</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a>
           </li>
           
           {% else %}
            <li class="nav-item mx-0 mx-lg-1"> 
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'registration' %}">Register</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'registration' %}"><i class="fas fa-user-plus primary"></i> Register</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'login' %}">Login</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Sign In</a>
           </li>
           {% endif %}
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Store</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'products' %}"><i class="fas fa-store-alt"></i> Store</a>
           </li>
         </ul>
       </div>
@@ -63,8 +63,7 @@
   <header class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
 
-      <!-- Masthead Avatar Image -->
-      <img class="masthead-avatar mb-5" src=" {% static 'img/avataaars.svg' %}" alt="">
+
 
       <!-- Masthead Heading -->
       <h1 class="masthead-heading text-uppercase mb-0">Retro Jerseys </h1>
@@ -73,13 +72,22 @@
       <div class="divider-custom divider-light">
         <div class="divider-custom-line"></div>
         <div class="divider-custom-icon">
-          <i class="fas fa-star"></i>
+          <i class="fas fa-basketball-ball"></i>
         </div>
         <div class="divider-custom-line"></div>
       </div>
 
       <!-- Masthead Subheading -->
-      <p class="masthead-subheading font-weight-light mb-0">High Quality Retro Threads!</p>
+      <p class="masthead-subheading font-weight-light mb-0">
+        <h2>
+        High Quality Retro Threads!
+        </h2>
+        <hr>
+        <h3>
+        Buy, Browse or Sell your Jerseys with us!
+        </h3>
+        </p>
+      
 
     </div>
   </header>

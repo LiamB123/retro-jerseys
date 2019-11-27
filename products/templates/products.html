@@ -2,23 +2,28 @@
 <div class="container">
     <div class="row row-flex">
         {% for p in products %}
-        <div class="col-xs-12 col-xs-offset-0 col-sm-offset-0 col-sm-12 col-md-6 col-lg-4">
-            <div class=" card-img-top" style=" background-image: url('{{ MEDIA_URL}}{{p.image}}')">
-
-                <div>
+        <div class="col-xs-12 col-xs-offset-0 col-sm-offset-0 col-sm-12 col-md-6 col-lg-6 card card-img-top">
+            <div class="img-fill" style=" background-image: url('{{ MEDIA_URL}}{{p.image}}')">
+      
                     <h3>{{p.name}}</h3>
                     <p class="card-body">{{ p.description }}</p>
                     <p>{{p.price}}</p>
 
-                    <form method="post" action='#'>
+
+                      {% if user.is_authenticated %}
+                    <form method="post" action='{% url "add_to_cart" p.id %}'>
                         {% csrf_token %}
                         <div class="input-group">
-                            <input name="quantity" type="number" min="1" max="19" class="form-control" placeholder="Quantity">
+                            <input name="quantity" type="number" min="1" max="19" class="form-control" placeholder="Quantity" required>
                             <span class='input-group-btn'>
+                              
                             <button class="btn btn-dark" type="submit">Add</button>
                         </span>
                         </div>
                     </form>
+                {% else %}
+                <a class="btn btn-outline-dark" href="{% url 'login' %}">Login First!</a>
+                {% endif %}
                 </div>
             </div>
         </div>
